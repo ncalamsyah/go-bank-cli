@@ -58,11 +58,17 @@ func register() {
 		fmt.Scanln(&passwordAgain)
 	}
 
-	var person Person = Person{Name: name, User: User{Email: email, Password: password}}
+	var person Person = Person{
+		Name: name,
+		User: User{
+			Email:    email,
+			Password: password}}
 
 	accountHash := GenerateAccountNumber(person)
 	person.AccountHash = accountHash
-	var bankDetail BankDetail = BankDetail{AccountHash: accountHash, CurrentBalance: 0}
+	var bankDetail BankDetail = BankDetail{
+		AccountHash:    accountHash,
+		CurrentBalance: 0}
 
 	Persons = append(Persons, person)
 	Users = append(Users, person.User)
@@ -183,6 +189,8 @@ func userPage(email string) {
 						currentIter.CurrentBalance += amount
 					} else if currentIter.AccountHash == currentPerson.AccountHash {
 						currentIter.CurrentBalance -= amount
+					} else if currentIter.AccountHash != receiver.AccountHash {
+						fmt.Printf("Receiver's email doesn't exists")
 					}
 				}
 				TransferTransactions = append(TransferTransactions, TransferTransaction{Amount: amount, From: currentPerson.AccountHash, To: receiver.AccountHash})
