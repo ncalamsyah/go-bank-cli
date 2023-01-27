@@ -1,15 +1,26 @@
-# Banking App CLI
+# Banking App Simulation CLI
+[![Go](https://img.shields.io/badge/go-1.19-green.svg)](https://golang.org/)
 
-// To run the app
+## About
+---
+This is simulation of simple banking application program with Command Line Interface (CLI)
+### Features
+```
+- Create Account
+- Login
+- Check balance
+- Withdraw
+- Deposit
+- Transfer
+```
 
+## Quick Start
+---
+```
+# Run App
 go run .
+```
 
-````
-
-// Register account before login
-// Receiver's email need to be registered first before receiving amounts
-
-```bash
-// To exit at any point of the app execution
-<Ctrl + c>
-````
+## Project Diagram
+---
+![Bank Simulation CLI](bank-cli.png)
